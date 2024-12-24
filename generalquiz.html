@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Quiz</title>
+    <link rel="stylesheet" href="generalquiz.css">
+    <link rel="icon" href="images/favicon.png" type="image">
+  </head>
+
+  <body>
+       <div class="overlay visible">
+    Click to start
+  </div>
+<script>
+  // Get the overlay and audio elements
+const overlay = document.querySelector(".overlay");
+const backgroundMusic = new Audio("audio/backgmusic.mp3");
+
+// Configure audio settings
+backgroundMusic.loop = true;
+backgroundMusic.volume = 0.5;
+
+// Add click event listener to the overlay
+overlay.addEventListener("click", () => {
+  console.log("Overlay clicked"); // Debugging
+  overlay.classList.remove("visible");
+  overlay.style.display = "none";
+
+  backgroundMusic.play()
+    .then(() => console.log("Music started playing"))
+    .catch(error => console.error("Error starting music:", error));
+
+  // startGame(); // Uncomment after testing
+});
+</script>
+    
+    <header>
+      <div class="logo-box">
+        <img src="images/logo.png" alt="Logo" class="logo">
+      </div>
+     </header>
+
+    <main class="main">
+      <div class="container">
+        <section class="quiz-section">
+          <div class="quiz-box">
+            <h1>General Quiz</h1>
+            <div class="quiz-header">
+              <div class="global-timer">2:00</div>
+              <span class="header-score">Score: 0 / 10</span>
+            </div>
+            <h2 class="question-text"></h2>
+
+            <div class="option-list">
+  
+            </div>
+
+            <div class="quiz-footer">
+              <span class="question-total">1 of 10 Questions</span>
+              <button class="next-btn">Next</button>
+            </div>
+          </div>
+          <div class="result-box">
+               <h2>Quiz Result!</h2>
+           <div class="percentage-container">
+             <div class="circular-progress">
+               <span class="progress-value">0%</span>
+             </div>
+
+             <span class="score-text">Your Score 0 out of 10</span>
+           </div>
+           <div class="buttons">
+            <button class="tryAgain-btn">Try Again</button>
+            <button class="goHome-btn">Go To Home</button>
+           </div>
+          </div>
+        </section>
+      <section class="home">
+        <div class="home-content">
+          <h1>General Quiz</h1>
+          <button class="start-btn">Start Quiz</button>
+        </div>
+      </section>
+      </div>
+    </main>
+
+    <div class="popup-info">
+      <h2>Quiz Guide</h2>
+      <span class="info">1. You have a total of 2 minutes to answer 10 questions</span>
+      <span class="info">2. The questions are selected randomly from a pool of 55 questions on each load of the page</span>
+      <span class="info">3. You have to select an option before moving to the next question and there is no going back</span>
+      <span class="info">4. Once the timer goes out, it automatically moves to the home page</span>
+      <span class="info">5. You cannot exit the quiz while playing...Let's dive in!</span>   
+
+      <div class="btn-group">
+        <button class="info-btn exit-btn">Exit Quiz</button>
+        <a href="#" class="info-btn continue-btn">Continue</a>
+      </div>
+    </div>
+
+    <script src="generalquiz.js"></script>
+  </body>
+</html>

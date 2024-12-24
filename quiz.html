@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game</title>
+    <link rel="icon" href="images/favicon.png" type="image">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #09001d;
+            color: white;
+        }
+
+        .logo-box {
+            position: absolute;
+            top: -10px;
+            left: -20px;
+        }
+
+        .logo {
+            height: 150px;
+            filter: drop-shadow(0 0 5px #09001d);
+            animation-name: fadeIn;
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+            animation-delay: 1s;
+            animation-fill-mode: backwards;
+          /*animation-iteration-count: 3;*/
+        }
+        @keyframes fadeIn {
+           0% {
+            opacity: 0;
+           }
+
+           100% {
+            opacity: 100;
+           }
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            background: #4caf50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #388e3c;
+        }
+
+        .quiz-selection button {
+            margin: 10px;
+        }
+
+        @media (max-width: 600px) {
+    button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h1 {
+    font-size: clamp(2em, 5vw, 3em);
+    }
+
+    body {
+    overflow-x: hidden;
+    }
+
+    button {
+    min-width: 150px;
+    }
+}
+
+    </style>
+</head>
+<body>
+  
+  <div class="logo-box">
+    <img src="images/logo.png" alt="Logo" class="logo">
+  </div>
+
+    <div class="container">
+        <h1>Welcome to the Quiz Game!</h1>
+        <h2>Select a Quiz</h2>
+        <button id="bibleQuiz">Bible Quiz</button>
+        <button id="generalQuiz">General Quiz</button>
+    </div>
+
+    <script>
+        const bibleQuizButton = document.getElementById('bibleQuiz');
+        const generalQuizButton = document.getElementById('generalQuiz');
+
+        // Function to load a specific quiz
+        function loadQuiz(quizType) {
+            document.body.innerHTML = `
+                <div class="container">
+                    <h1>${quizType} Quiz</h1>
+                    <p>Quiz logic for the ${quizType} Quiz will go here.</p>
+                </div>
+            `;
+        }
+
+        // Event listeners for quiz buttons
+        bibleQuizButton.addEventListener('click', () => {
+        window.location.href = 'biblequiz.html'; // Replace with the URL or file path of the Bible Quiz page
+      });
+
+
+        generalQuizButton.addEventListener('click', () => {
+        window.location.href = 'generalquiz.html'; // Replace with the URL or file path of the General quiz Quiz page
+      });
+
+    </script>
+</body>
+</html>
+
+
